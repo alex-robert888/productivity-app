@@ -1,0 +1,15 @@
+
+* [ ] add indices to tables
+* [ ] plan a day (every 24 hours, as I did for the year plan for 2021)
+* [ ] make plans for certain periods of time
+* [ ] have year objectives (primary & secondary)
+* [ ] timers for objectives
+* [ ] share your day plan (not explicitly, but the times alloted for sleep, sport, eating, job, side business etc.)
+* [ ] have deadlines & deadline timers	
+* [ ] reviews system => review your day, month, year ....
+* [ ] make it easy to update plans, potposne, change deadlines...
+* [ ] every day start automatically and remind user
+* [ ] add delimitator to tasks like I did in productivtiy app features
+* [ ] dark & light themes
+* [ ] somthing around the idea of deep study
+* [ ] convert to text file

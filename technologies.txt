@@ -1,0 +1,17 @@
+
+- Text editor: Visual Studio Code
+- Browser: Chrome, Firefox, Edge (test on all three)
+- Terminal: Git Bash
+- Design & Prototype: Adobe XD
+- From HTML: 
+	- semantic html (section, article, figure & figcaption, details, main, mark, summary, time, abbr) 
+	- forms & validations
+	- SEO (title tag, meta description tag, heading, image alt tags, nofollow links, canonical tags)
+- From CSS:
+	- Basics
+	- Flexbox
+	- Grid
+	- SASS (mixins, if statments, for statements)
+	- Custom Properties (used them over SASS variables)
+	- Animations (using GSAP)
+	- Responsive Design (mobile first, media querries, rem, fluid width => max-width, min-width)
