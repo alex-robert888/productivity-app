@@ -1,0 +1,14 @@
+
+* [ ] authentication
+	* [ ] sign up
+		-- Adobe XD
+		* [ ] sign up page
+		
+		-- React 
+		* [ ] create the auth page
+		* [ ] make it responsive
+		* [ ] 		
+	
+		-- Rails	
+	* [ ] log in
+	
