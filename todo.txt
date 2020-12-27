@@ -1,5 +1,16 @@
+* [ ] auth page header
+	* [x] place logo and close icon
+	* [x] logo click event routes back to home page
+		* [x] test it
+	
+	* [x] design mobile first
+	* [x] make it responsiv
+	
 
 * [ ] authentication
+	* [ ] auth page
+		* [ ] place svg illustration
+		* [ ] set the generic form place
 	* [ ] sign up
 		-- Adobe XD
 		* [ ] sign up page

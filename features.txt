@@ -1,9 +1,13 @@
 
 * [ ] add indices to tables
+* [ ] have a bucket of unfiltered task
+* [ ] let user selec the next step of a project
+* [ ] have buckets for collection and be able to empty it
 * [ ] plan a day (every 24 hours, as I did for the year plan for 2021)
 * [ ] make plans for certain periods of time
 * [ ] have year objectives (primary & secondary)
 * [ ] timers for objectives
+* [ ] mark tasks as abandoned
 * [ ] share your day plan (not explicitly, but the times alloted for sleep, sport, eating, job, side business etc.)
 * [ ] have deadlines & deadline timers	
 * [ ] reviews system => review your day, month, year ....
@@ -13,3 +17,4 @@
 * [ ] dark & light themes
 * [ ] somthing around the idea of deep study
 * [ ] convert to text file
+* [ ] computer analyze on the productivity of the user and give advice based on an algorithm / machine learning algorithm

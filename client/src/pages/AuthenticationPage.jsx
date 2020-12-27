@@ -6,6 +6,7 @@ import Header from '../components/header/Header';
 const AuthenticationPage = () => {
     return (
         <section id='authentication-page'>
+            <h1>Auth Page</h1>
         </section>
     );
 }

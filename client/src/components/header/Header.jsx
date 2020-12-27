@@ -9,7 +9,6 @@ const Header = () => {
     return (
         <header id='header' className="page-section">
             <BaseLogo />
-            <BaseCloseIcon />
         </header>
     );
 }
