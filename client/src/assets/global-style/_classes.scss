@@ -1,19 +1,48 @@
-
+@import './variables';
+@import './mixins';
 /* ----- buttons ----- */
-.button--with-image {
-    background: none;
+.button {
+    @include rounded-border;
+    cursor: pointer;
+    height: 2.4rem;
+
+    &--with-image {
+        @extend .button;
+        background: none;
+    }
+
+    &--filled {
+        @extend .button;
+        background-color: $color-primary-500;
+        color: $color-primary-100;
+    }
 }
 
 /* ----- pages, sections ----- */
-.page-section {
-    padding: 0 2rem;
+.page--padding {
+    padding: 0 1.5rem;
     
     @media (min-width: 650px) {
         padding: 0 6.5rem;
     }
 }
 
+.page--padding-double {
+    padding: 0 2.7rem;
+
+    @media (min-width: 650px) {
+        padding: 0 13.5rem;
+    }
+}
+
 /* ----- flex ----- */
 .flex--push-right {
     margin-left: auto;
+}
+
+/* ----- text ----- */
+.text {
+    &--small {  
+        font-size: 0.96rem;
+    }
 }

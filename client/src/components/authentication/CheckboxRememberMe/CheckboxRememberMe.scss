@@ -1,0 +1,12 @@
+@import '../../../assets/global-style/mixins';
+
+
+.checkbox-remember-me {
+    > label {
+        margin-left: 0.8rem;
+    }
+
+    > input {
+        @include rounded-border;
+    }
+}

@@ -1,5 +1,7 @@
+@import '../../assets/global-style/variables';
+
 header {
-    height: 10vh;
+    height: $page-header-height;
     display: flex;
     align-items: center;
 }

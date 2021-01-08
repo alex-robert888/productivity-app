@@ -1,0 +1,35 @@
+@import '../../assets/global-style/variables';
+
+#authentication-page {
+    > section {
+        display: grid;
+        row-gap: 0.8rem;
+    
+        a {
+            color: $color-primary-500;
+        }
+    }
+}
+
+#authentication-page-illustration {
+    width: 110%;
+    margin-top: -2.3rem;
+    margin-left: -1.5rem;
+}
+
+@media (min-width: 650px) {
+    #authentication-page {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh - $page-header-height;
+        
+        > section {
+            width: 22vw;
+        }
+    }
+
+    #authentication-page-illustration {
+        width: 37rem;
+    }
+}

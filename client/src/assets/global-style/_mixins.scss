@@ -1,0 +1,6 @@
+@import './variables';
+
+@mixin rounded-border {
+    border-radius: 0.38rem;
+    border: 1px solid $color-primary-250;
+}

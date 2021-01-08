@@ -1,0 +1,17 @@
+@import '../../../assets/global-style/mixins';
+
+.button-google-authentication {
+    @include rounded-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+
+    > img {
+        width: 1rem;
+    }
+
+    > span {
+        margin-left: 0.7rem;
+    }
+}

@@ -1,4 +1,4 @@
-* [ ] auth page header
+* [x] auth page header
 	* [x] place logo and close icon
 	* [x] logo click event routes back to home page
 		* [x] test it
@@ -9,8 +9,9 @@
 
 * [ ] authentication
 	* [ ] auth page
-		* [ ] place svg illustration
+		* [x] place svg illustration
 		* [ ] set the generic form place
+		
 	* [ ] sign up
 		-- Adobe XD
 		* [ ] sign up page

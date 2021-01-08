@@ -1,0 +1,13 @@
+@import '../../../assets/global-style/classes';
+@import '../../../assets//global-style//mixins';
+
+.input-text-with-icon {
+    display: flex;
+    flex-direction: column;
+
+    > input {
+        @include rounded-border;
+        height: 2.4rem;
+        padding: 0 0.85rem;
+    }
+}
