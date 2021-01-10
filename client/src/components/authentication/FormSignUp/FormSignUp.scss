@@ -1,0 +1,16 @@
+#form-sign-up {
+    display: grid;
+    row-gap: 3rem;
+}
+
+.form-sign-up__main {
+    display: grid;
+    row-gap: 0.8rem;
+}
+
+.form-sign-up__main__two_on_row {
+    display: flex;
+    input {
+        width: 9rem;
+    }
+}

@@ -8,3 +8,8 @@ $color-primary-800: #373637;
 
 // Dimensions
 $page-header-height: 10.5vh;
+
+
+:export {
+    colorPrimary500: $color-primary-500;
+}

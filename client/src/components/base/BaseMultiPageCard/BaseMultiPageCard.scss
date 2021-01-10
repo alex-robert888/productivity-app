@@ -1,0 +1,10 @@
+.base-multipage-card__next-step {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > button {
+        width: 8rem;
+        margin-top: 0.8rem;
+    }
+}

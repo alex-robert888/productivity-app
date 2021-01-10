@@ -1,0 +1,14 @@
+@import '../../../assets/global-style/variables';
+
+.base-step-indicator {
+    > ul {
+        display: flex;
+        > li {
+            border-radius: 50%;
+            border: 1px solid $color-primary-500;
+            width: 0.62rem;
+            height: 0.62rem;
+            margin: 0 0.15rem;
+        }
+    }
+}

@@ -25,6 +25,8 @@ const FormLogIn = () => {
                 />
 
                 <CheckboxRememberMe />
+
+                <button className="button--filled">Log in</button>
             </section>
         </section>
     );

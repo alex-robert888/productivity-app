@@ -22,8 +22,7 @@ const AuthenticationPage = () => {
                     <Route path='/auth/login'  component={FormLogIn} />
                     <Route path='/auth/signup' component={FormSignUp} />
                 </Switch>
-
-                <button className="button--filled">Log in</button>
+                
                 <ButtonGoogleAuthentication />
 
                 <p className="text--small">Have no account yet? <a href="/auth/signup" className="text--small">Sign up</a></p>

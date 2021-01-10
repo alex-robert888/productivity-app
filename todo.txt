@@ -5,21 +5,22 @@
 	
 	* [x] design mobile first
 	* [x] make it responsiv
+
 	
 
 * [ ] authentication
 	* [ ] auth page
 		* [x] place svg illustration
-		* [ ] set the generic form place
-		
+		* [x] set the generic form place
+		* [ ] icon in input 	
+
 	* [ ] sign up
 		-- Adobe XD
-		* [ ] sign up page
+		* [x] sign up page
 		
 		-- React 
-		* [ ] create the auth page
-		* [ ] make it responsive
-		* [ ] 		
+		* [x] create the auth page
+		* [x] make it responsive	
 	
 		-- Rails	
 	* [ ] log in
