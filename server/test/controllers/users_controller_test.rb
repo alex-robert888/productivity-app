@@ -6,43 +6,33 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get users_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_user_url
+    get users_url, as: :json
     assert_response :success
   end
 
   test "should create user" do
     assert_difference('User.count') do
-      post users_url, params: { user: { city: @user.city, country: @user.country, date_of_birth: @user.date_of_birth, email: @user.email, full_name: @user.full_name, password_digest: @user.password_digest, username: @user.username } }
+      post users_url, params: { user: { city: @user.city, country: @user.country, date_of_birth: @user.date_of_birth, email: @user.email, full_name: @user.full_name, password_digest: @user.password_digest, username: @user.username } }, as: :json
     end
 
-    assert_redirected_to user_url(User.last)
+    assert_response 201
   end
 
   test "should show user" do
-    get user_url(@user)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_user_url(@user)
+    get user_url(@user), as: :json
     assert_response :success
   end
 
   test "should update user" do
-    patch user_url(@user), params: { user: { city: @user.city, country: @user.country, date_of_birth: @user.date_of_birth, email: @user.email, full_name: @user.full_name, password_digest: @user.password_digest, username: @user.username } }
-    assert_redirected_to user_url(@user)
+    patch user_url(@user), params: { user: { city: @user.city, country: @user.country, date_of_birth: @user.date_of_birth, email: @user.email, full_name: @user.full_name, password_digest: @user.password_digest, username: @user.username } }, as: :json
+    assert_response 200
   end
 
   test "should destroy user" do
     assert_difference('User.count', -1) do
-      delete user_url(@user)
+      delete user_url(@user), as: :json
     end
 
-    assert_redirected_to users_url
+    assert_response 204
   end
 end
