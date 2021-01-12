@@ -2,7 +2,7 @@ import React from "react";
 import "./InputTextWithIcon.scss";
 import '../../../assets/global-style/_classes.scss';
 
-const InputTextWithIcon = ({iconUrl, labelText, inputType}) => {
+const InputTextWithIcon = ({iconUrl, labelText, inputType, inputName, inputOnChange}) => {
     return (
         <div className="input-text-with-icon">
             <label
@@ -13,7 +13,8 @@ const InputTextWithIcon = ({iconUrl, labelText, inputType}) => {
             </label>
             <input 
                 type={inputType} 
-                name="input" 
+                name={inputName}
+                onChange={(e) => inputOnChange(e)}
                 // style = {{background: url(iconUrl)}}
             />
         </div>

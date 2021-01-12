@@ -3,7 +3,7 @@ import './BaseMultiPageCard.scss';
 import '../../../assets/global-style/_classes.scss';
 import BaseStepIndicator from '../BaseStepIndicator/BaseStepIndicator';
 
-const BaseMultiPageCard = ({numberOfPages, listOfMainFragments}) => {
+const BaseMultiPageCard = ({numberOfPages, listOfMainFragments, handleButtonCreateAccountOnClick}) => {
     const [currentPage, setCurrentPage] = useState(0);
     
     useEffect(() => {
@@ -15,10 +15,6 @@ const BaseMultiPageCard = ({numberOfPages, listOfMainFragments}) => {
         setCurrentPage(currentPage + 1);
     }
 
-    function buttonCreateAccountOnClick(e) {
-        // post request to server
-        e.preventDefault();
-    }
 
     return (
         <article className='base-multipage-card'>
@@ -29,7 +25,7 @@ const BaseMultiPageCard = ({numberOfPages, listOfMainFragments}) => {
                     ?
                         <button className="button--filled" onClick={buttonNextStepOnClick}>next step</button>
                     :
-                        <button className="button--no-fill" onClick={buttonCreateAccountOnClick}>create account</button>
+                        <button className="button--no-fill" onClick={() => handleButtonCreateAccountOnClick()}>create account</button>
                 }
                 <BaseStepIndicator 
                     numberOfSteps={numberOfPages}

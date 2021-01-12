@@ -78,13 +78,19 @@ class UserTest < ActiveSupport::TestCase
 
   test "password must be present" do
     user_without_password = @user.dup
-    user_without_password.password = "";
+    user_without_password.password = " " * 5;
+    assert_not user_without_password.valid?
+  end
+
+  test "password length must be of minimum 6 characters" do
+    user_without_password = @user.dup
+    user_without_password.password = "a" * 5;
     assert_not user_without_password.valid?
   end
 
   test "password_confirmation must be present" do
     user_without_password_confirmation = @user.dup
-    user_without_password_confirmation.password_confirmation = "" * 5;
+    user_without_password_confirmation.password_confirmation = " " * 5;
     assert_not user_without_password_confirmation.valid?
   end
 end
