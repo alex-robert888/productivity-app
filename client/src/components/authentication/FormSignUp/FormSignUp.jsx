@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import BaseMultiPageCard from "../../base/BaseMultiPageCard/BaseMultiPageCard";
 import BaseUnderlinedHeading from '../../base/BaseUnderlinedHeading/BaseUnderlinedHeading';
 import InputTextWithIcon from '../InputTextWithIcon/InputTextWithIcon';
@@ -20,14 +20,9 @@ const FormSignUp = () => {
         passwordConfirmation: ""
     });
 
-    useEffect(() => {
-        console.log(signUpData);
-    }, [signUpData])
-
     // Update the user sign up state when corresponding input changed
     function handleInputChange(e) {
         e.preventDefault();
-        console.log(e.target.value);
         setSignUpData({
             ...signUpData,
             [e.target.name]: e.target.value
@@ -36,7 +31,7 @@ const FormSignUp = () => {
 
     // Handle sign up form submit button click
     async function handleButtonCreateAccountOnClick() {
-        const response = await axios.post(SERVER_URL_USERS, {
+        await axios.post(SERVER_URL_USERS, {
             user: {
                 full_name: signUpData.fullName,
                 email: signUpData.email,
@@ -48,7 +43,6 @@ const FormSignUp = () => {
                 password_confirmation: signUpData.passwordConfirmation
             }
         });
-        console.log(response);
     }
 
     // The forms list to be  passed to the multipage component
