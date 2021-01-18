@@ -10,7 +10,7 @@ import '../../assets/global-style/_classes.scss';
 
 const AuthenticationPage = () => {
     return (
-        <section id='authentication-page' className="page--padding-double">
+        <section id='authentication-page'>
             <img 
                 src={authenticationPageIllustration} 
                 alt="vector illustration with a girl next to an hour glass" 

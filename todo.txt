@@ -6,7 +6,11 @@
 	* [x] design mobile first
 	* [x] make it responsiv
 
-	
+
+* [ ] set up Redux
+	* [x] store file
+	* [x] User slice
+	* [ ] Task slice
 
 * [ ] authentication
 	* [ ] auth page
@@ -21,7 +25,44 @@
 		-- React 
 		* [x] create the auth page
 		* [x] make it responsive	
-	
+		* [x] test
+		* [ ] client-side validations
+
 		-- Rails	
+		* [x] user model 
 	* [ ] log in
-	
+		-- Rails
+		* [x] manage sessions
+		* [ ] store logged user data in Redux store
+
+		-- React	
+		* [ ] client-side validations
+		* [x] make it work
+
+* [ ] user profile edit section
+	* [ ] change full name
+	* [ ] change email
+	* [ ] change date Of birth
+	* [ ] change country
+	* [ ] change city
+	* [ ] change username
+	* [ ] chanage password
+
+* [ ] user dashboard
+	* [ ] today's tasks
+		* [ ] design on user's dashboard
+		* [ ] CRUD operations
+			* [ ] Load users tasks from DB
+			* [ ] Create tasks	
+				* [ ] Set title
+				* [ ] Set summary
+				* [ ] Set priority
+				* [ ] Set deadline
+				* [ ] Design task look
+			* [ ] Delete tasks
+			* [ ] Update tasks
+			* [ ] Undo / redo actions		
+	* [ ] user's lists
+		* [ ] design on user's dashboard
+	* [ ] user's projects
+		* [ ] design on user's dashboard

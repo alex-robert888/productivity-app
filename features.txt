@@ -1,6 +1,5 @@
 
-* [ ] add indices to tables
-* [ ] have a bucket of unfiltered task
+* [ ] have a bucket of unfiltered tasks
 * [ ] let user selec the next step of a project
 * [ ] have buckets for collection and be able to empty it
 * [ ] plan a day (every 24 hours, as I did for the year plan for 2021)
