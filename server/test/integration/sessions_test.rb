@@ -2,7 +2,7 @@ require "test_helper"
 
 class SessionsTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users("alex")
+    @user_3 = users("user_3")
   end
 
   test "log in attempt with invalid parameters respond with status 401" do
@@ -21,7 +21,7 @@ class SessionsTest < ActionDispatch::IntegrationTest
     get sessions_path
     post sessions_path, params: {
       user: {
-        email: @user.email,
+        email: @user_3.email,
         password: "asd"
       }
     }
@@ -33,7 +33,7 @@ class SessionsTest < ActionDispatch::IntegrationTest
     get sessions_path
     post sessions_path, params: {
       user: {
-        email: @user.email,
+        email: @user_3.email,
         password: 'alex1234'
       }
     }

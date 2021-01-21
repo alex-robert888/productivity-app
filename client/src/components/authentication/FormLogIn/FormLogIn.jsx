@@ -2,7 +2,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { setUserState } from '../../../store/userSlice';
+import { 
+    setUserState, 
+    setUserJwt, 
+    selectSessionStorageKeyJwt 
+} from '../../../store/userSlice';
 import BaseUnderlinedHeading from '../../base/BaseUnderlinedHeading/BaseUnderlinedHeading';
 import InputTextWithIcon from '../InputTextWithIcon/InputTextWithIcon';
 import CheckboxRememberMe from '../CheckboxRememberMe/CheckboxRememberMe';
@@ -30,6 +34,8 @@ const FormLogIn = () => {
 
     async function handleButtonLogInClick(e) {
         e.preventDefault();
+        debugger;
+        // Log in and receive user credentials
         const credentials = await axios.post(SERVER_URL_SESSIONS, {
             user: {
                 email: logInData.email,
@@ -37,11 +43,13 @@ const FormLogIn = () => {
             }
         });
         
+        // If received status is 401, display error that occurred
         if (credentials.data.status === 401) {
             alert("Log in failed. Email or password invalid..");
             return;
         }
 
+        // Store logged user credentials
         dispatch(setUserState({
             fullName: credentials.data.user.full_name,
             email: credentials.data.user.email,
@@ -50,6 +58,14 @@ const FormLogIn = () => {
             city: credentials.data.user.city,
             username: credentials.data.user.username
         }));
+
+        // Store user jwt in Redux storage
+        dispatch(setUserJwt(credentials.data.jwt));
+
+        // Store user jwt in local storage
+        localStorage.setItem(selectSessionStorageKeyJwt , credentials.data.jwt);
+
+        // Redirect user to their dashboard page
         history.push('/user/dashboard');
     }
 

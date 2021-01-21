@@ -4,6 +4,12 @@ import { createSlice } from '@reduxjs/toolkit';
 export const pagesSlice = createSlice({
     name: 'pages',
     initialState: {
+        urls: {
+            URL_HOME_PAGE: '/',
+            URL_AUTH_PAGE: '/auth',
+            URL_LOG_IN_PAGE: '/auth/login',
+            URL_SIGN_UP_PAGE: '/auth/signup'
+        },
         currentPage: ""
     },
     reducers: {
