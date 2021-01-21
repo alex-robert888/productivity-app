@@ -46,7 +46,22 @@
 	* [ ] change country
 	* [ ] change city
 	* [ ] change username
-	* [ ] chanage password
+	* [ ] chanage passwor
+
+* [x] advanced log in (with JWT)
+	* [x] server
+		* [x] On log in, create a jtw token and send it back to the client
+		* [x] Implement log in based on jwt
+	* [x] client	
+		* [x] Create a Redux thunk which retrieves the jwt token from the local storage, and send it to the server to create sessions
+
+* [ ] user profile page
+	* [ ]  
+
+* [ ] task card
+	* [ ] server
+		* [ ] create task scaffold
+
 
 * [ ] user dashboard
 	* [ ] today's tasks

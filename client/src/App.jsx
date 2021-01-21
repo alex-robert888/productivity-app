@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { authenticateUserWithJwt } from './store/userSlice';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; 
 import AuthenticationPage from './pages/AuthenticationPage/AuthenticationPage';
@@ -7,8 +8,15 @@ import HomePage from './pages/HomePage/HomePage';
 import UserPage from './pages/UserPage/UserPage';
 import Header from './components/header/Header';
 import './assets/global-style/_classes.scss';
+import { useDispatch } from 'react-redux';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authenticateUserWithJwt());
+  }, []);
+
   return (
       <Router>
         <div id='app'>
