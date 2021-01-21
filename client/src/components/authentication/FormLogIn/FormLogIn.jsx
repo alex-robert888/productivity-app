@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { setUserState } from '../../../store/userSlice';
-// import setUserJwt from '../../../store/userSlice';
+import { 
+    setUserState, 
+    setUserJwt, 
+    selectSessionStorageKeyJwt 
+} from '../../../store/userSlice';
 import BaseUnderlinedHeading from '../../base/BaseUnderlinedHeading/BaseUnderlinedHeading';
 import InputTextWithIcon from '../InputTextWithIcon/InputTextWithIcon';
 import CheckboxRememberMe from '../CheckboxRememberMe/CheckboxRememberMe';
@@ -56,11 +59,11 @@ const FormLogIn = () => {
             username: credentials.data.user.username
         }));
 
-        // // Store user jwt in Redux storage
-        // dispatch(setUserJwt(credentials.data.jwt));
+        // Store user jwt in Redux storage
+        dispatch(setUserJwt(credentials.data.jwt));
 
-        // // Store user jwt in local storage
-        // localStorage.setItem("userJwt", credentials.data.jwt);
+        // Store user jwt in local storage
+        localStorage.setItem(selectSessionStorageKeyJwt , credentials.data.jwt);
 
         // Redirect user to their dashboard page
         history.push('/user/dashboard');
