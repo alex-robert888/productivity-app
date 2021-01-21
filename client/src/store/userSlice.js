@@ -36,7 +36,6 @@ export const {
 
 // thunks
 export const authenticateUserWithJwt = () => async (dispatch) => {
-    // debugger
     const jwt = localStorage.getItem("userJwt");
     if (jwt) {
         const credentials= await axios.post(SERVER_URL_SESSIONS + "/jwt", {
