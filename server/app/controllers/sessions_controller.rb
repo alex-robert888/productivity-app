@@ -14,13 +14,19 @@ class SessionsController < ApplicationController
 
         if @user
             log_in!(@user)
+            jwt_payload = {
+                user_id: @user.id
+            }
             render json: {
                 status: 201,
-                user: @user
+                message: "User was succesfully logged in.",
+                user: @user,
+                jwt: JWT.encode(jwt_payload, 'secret')
             }
         else
             render json: { 
                 status: 401, # unauthorized requests
+                message: "User failed to log in."
             }
         end
     end
