@@ -39,15 +39,6 @@
 		* [ ] client-side validations
 		* [x] make it work
 
-* [ ] user profile edit section
-	* [ ] change full name
-	* [ ] change email
-	* [ ] change date Of birth
-	* [ ] change country
-	* [ ] change city
-	* [ ] change username
-	* [ ] chanage passwor
-
 * [x] advanced log in (with JWT)
 	* [x] server
 		* [x] On log in, create a jtw token and send it back to the client
@@ -56,7 +47,10 @@
 		* [x] Create a Redux thunk which retrieves the jwt token from the local storage, and send it to the server to create sessions
 
 * [ ] user profile page
-	* [ ]  
+	* [ ] change fullname / email / username / date of birth / country / city
+	* [ ] something special and more secure for passwords
+	* [ ] set / change profile picture (probably, Gravatar)
+
 
 * [ ] task card
 	* [ ] server
