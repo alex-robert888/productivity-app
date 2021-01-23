@@ -21,4 +21,12 @@ class User < ApplicationRecord
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
         BCrypt::Password.create(string, cost: cost)
     end
+
+    def self.encode_jwt(payload)
+        JWT.encode(payload, 'secret')
+    end
+
+    def self.decode_jwt(jwt)
+        JWT.decode(jwt, 'secret', true, algorithm: 'HS256')
+    end
 end

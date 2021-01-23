@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
                 status: 201,
                 message: "Successfully created new user session.",
                 user: @user,
-                jwt: encode_jwt(jwt_payload)
+                jwt: User.encode_jwt(jwt_payload)
             }
         else
             render json: { 
@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
 
     def create_by_jwt
         jwt = self.get_jwt[:jwt]
-        decoded_jwt = decode_jwt(jwt)
+        decoded_jwt = User.decode_jwt(jwt)
 
         @user = User.find_by(id: decoded_jwt[0]["user_id"])
         

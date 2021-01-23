@@ -38,6 +38,8 @@ export const {
 export const authenticateUserWithJwt = () => async (dispatch) => {
     const jwt = localStorage.getItem("userJwt");
     if (jwt) {
+        dispatch(setUserJwt(jwt));
+
         const credentials= await axios.post(SERVER_URL_SESSIONS + "/jwt", {
             user: {
                 jwt: jwt

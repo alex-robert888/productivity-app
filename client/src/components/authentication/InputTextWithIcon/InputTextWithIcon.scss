@@ -1,5 +1,6 @@
 @import '../../../assets/global-style/classes';
 @import '../../../assets//global-style//mixins';
+@import '../../../assets//global-style//variables';
 
 .input-text-with-icon {
     display: flex;
@@ -7,7 +8,48 @@
 
     > input {
         @include rounded-border;
-        height: 2.4rem;
-        padding: 0 0.85rem;
+        height: 2.5rem;
+        padding: 0 2.1rem;
+
+        &:focus {
+            outline: none;
+            border: none;
+            box-shadow: 0 0 0 1.5pt $color-primary-500;
+        }
+    }
+
+    > img {
+        position: absolute;
+        width: 0.95rem;
+        margin-top: 1.97rem;
+        margin-left: 0.75rem;
+    }
+}
+
+.input-text-with-icon__label_section {
+    display: flex;
+    justify-content: space-between;
+
+    > small {
+        color: $color-primary-275;
+
+        > span {
+            color: $color-primary-400;
+        }
+    }
+}
+
+@media (min-width: 650px) {
+    .input-text-with-icon {
+        > input {
+            height: 3rem;
+            padding: 0 2.7rem;
+        }
+
+        > img {
+            width: 1.05rem;
+            margin-top: 2.25rem;
+            margin-left: 1.1rem;
+        }
     }
 }

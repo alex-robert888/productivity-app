@@ -2,7 +2,9 @@
 $color-primary-100: #FFFFFF;
 $color-primary-200: #F9F9F9;
 $color-primary-250: #cfcfcf;
+$color-primary-275: #b1b0b0;
 $color-primary-300: #D5C5FF;
+$color-primary-400: #EF0198;
 $color-primary-500: #612CF1;
 $color-primary-800: #373637;
 
@@ -11,5 +13,5 @@ $page-header-height: 10.5vh;
 
 
 :export {
-    colorPrimary500: $color-primary-500;
+    colorPrimary500: $color-primary-275;
 }

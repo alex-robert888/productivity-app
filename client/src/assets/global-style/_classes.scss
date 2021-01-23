@@ -5,6 +5,7 @@
     @include rounded-border;
     cursor: pointer;
     height: 2.4rem;
+    outline: none;
 
     &--with-image {
         @extend .button;
@@ -22,12 +23,19 @@
         border: 1px solid $color-primary-500;
         color: $color-primary-500;
         background: none;
+
+        &--no-border {
+            @extend .button--no-fill;
+            border: none;
+        }
     }
 }
 
+$page-single-padding-mobile: 1.5rem;
+
 /* ----- pages, sections ----- */
 .page--padding {
-    padding: 0 1.5rem;
+    padding: 0 $page-single-padding-mobile;
     
     @media (min-width: 650px) {
         padding: 0 6.5rem;
@@ -35,7 +43,7 @@
 }
 
 .page--padding-double {
-    padding: 0 2.7rem;
+    padding: 0 $page-single-padding-mobile;
 
     @media (min-width: 650px) {
         padding: 0 13.5rem;
@@ -49,6 +57,9 @@
 
 /* ----- text ----- */
 .text {
+    &--x-small {
+        font-size: 0.92rem;
+    }
     &--small {  
         font-size: 0.96rem;
     }

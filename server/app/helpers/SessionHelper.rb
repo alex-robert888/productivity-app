@@ -16,12 +16,4 @@ module SessionHelper
     def logged_in? 
         !current_user.nil?
     end
-
-    def encode_jwt(payload)
-        JWT.encode(payload, 'secret')
-    end
-
-    def decode_jwt(jwt)
-        JWT.decode(jwt, 'secret', true, algorithm: 'HS256')
-    end
 end
