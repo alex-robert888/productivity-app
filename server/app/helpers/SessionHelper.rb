@@ -16,4 +16,13 @@ module SessionHelper
     def logged_in? 
         !current_user.nil?
     end
+
+    
+    def authorized?
+        if 
+        render json: {
+           status: :unauthorized
+           message: "Unauthorized API request. No session was established."
+       }
+    end
 end

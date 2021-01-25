@@ -1,12 +1,30 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-<% 10.times do |n| %>
-user_<%= n %>:
-    full_name: <%= "User{n}" %>
-    email: <%= "user{n}@example.com" %>
+# <% 10.times do |n| %>
+# user_<%= n %>:
+#     full_name: <%= "User{n}" %>
+#     email: <%= "user{n}@example.com" %>
+#     date_of_birth: 1999-12-31 
+#     country: Romania
+#     city: Cluj
+#     username: <%= "user{n}" %>
+#     password_digest: <%= User.get_digest('user{n}_1234') %>
+# <% end %>
+
+alex1: 
+    full_name: "Alex Robert 1"
+    email: alex12@example.com
     date_of_birth: 1999-12-31 
     country: Romania
     city: Cluj
-    username: <%= "user{n}" %>
-    password_digest: <%= User.get_digest('user{n}_1234') %>
-<% end %>
+    username: alexx1
+    password_digest: <%= User.get_digest('alex1234_1') %>
+
+# alex2: 
+#     full_name: "Alex Robert 2"
+#     email: alex2@example.com
+#     date_of_birth: 1999-12-31 
+#     country: Romania
+#     city: Cluj
+#     username: alexx2
+#     password_digest: <%= User.get_digest('alex1234_2') %>
