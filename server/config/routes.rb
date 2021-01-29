@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  patch '/users/*jwt', to:"users#update_jwt", constraints: { jwt: /.*/ }
-  resources :users
+  get '/users/authenticated', to: "users#show"
+  patch '/users/authenticated', to:"users#update"
+  delete '/users/authenticated', to: "users#destroy"
+  resources :users, only: [:index, :create]
 
-  resources :sessions, only: [:index, :create, :show, :destroy]
-  post '/sessions/jwt', to: "sessions#create_by_jwt"
+  resources :sessions, only: [:create]
 end

@@ -1,61 +1,64 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  skip_before_action :authorized?, only: [:create]
 
   # GET /users
+  # Creates a new 
   def index
     @users = User.all
-
     render json: @users
   end
 
-  # GET /users/1
+  # GET /users/authenticated
   def show
     render json: @user
   end
 
   # POST /users
+  # Creates a new user with the credentials from params
+  # @renders: user data, if successfully created
+  #          error message, otherwise
   def create
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      render json: @user, status: 201
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors, status: 401
     end
   end
 
-  # PATCH/PUT /users/1
-  def update_jwt
-    decoded_jwt = User.decode_jwt(params[:jwt]);
-    # render json: decoded_jwt[0]["user_id"];
-    @user = User.find(decoded_jwt[0]["user_id"]);
+  # PATCH/PUT /users/authenticated
+  # Updates the credentials of the authenticated user with params
+  # @renders: user data with updated credentials, if update was successful
+  #           error, otherwise
+  def update
     if self.all_attributes_updated_succcessfully?
-        render json: @user
+        render json: @user, status: 200
     else
-        render json: @user.errors, status: :unprocessable_entity
+        render json: @user.errors, status: 400
     end
   end
 
-  # DELETE /users/1
+  # DELETE /users/authenticated
+  # Deletes from DB the currently authenticated user
   def destroy
     @user.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
+    # Allow all user credentials, except the id
     def user_params
-      params.require(:user).permit(:country, :email, :date_of_birth, :country, :city, :username, :password, :password_confirmation)
+      params.require(:user).permit(:full_name, :country, :email, :date_of_birth, :country, :city, :username, :password, :password_confirmation)
     end
 
+    # For an update, allow all user credentials, excepr the id, password & password_confirmation
     def user_params_update
       params.require(:user).permit(:full_name, :email, :date_of_birth, :country, :city, :username)
     end
 
+    # Update user attributes with given param
+    # @returns: true, if all updates succeeded
+    #           false, if any of the updates failed
     def all_attributes_updated_succcessfully?
       @user.update_attribute(:email, user_params_update[:email]) &&
       @user.update_attribute(:full_name, user_params_update[:full_name]) &&
@@ -63,5 +66,9 @@ class UsersController < ApplicationController
       @user.update_attribute(:username, user_params_update[:username]) &&
       @user.update_attribute(:country, user_params_update[:country]) &&
       @user.update_attribute(:city, user_params_update[:city])
+    end
+
+    def update_attribute(attribute_name)!
+      @user.update_attribute(attribute_name, user_params_update[attribute_name])
     end
 end

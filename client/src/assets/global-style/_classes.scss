@@ -4,8 +4,10 @@
 .button {
     @include rounded-border;
     cursor: pointer;
-    height: 2.4rem;
+    height: 3rem;
     outline: none;
+    font-weight: 600;
+    font-size: 0.95rem;
 
     &--with-image {
         @extend .button;
