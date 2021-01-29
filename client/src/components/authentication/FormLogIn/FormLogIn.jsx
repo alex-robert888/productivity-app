@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { 
     setUserState, 
     setUserJwt, 
@@ -14,10 +14,13 @@ import "./FormLogIn.scss";
 import "../../../assets/global-style/_classes.scss";
 import { SERVER_URL_SESSIONS } from '../../../global/server';
 import axios from 'axios';
+import emailIcon from '../../../assets/images/email-icon.svg';
+import passwordIcon from '../../../assets/images/password-icon.svg';
 
 const FormLogIn = () => {
     const history = useHistory();
     const dispatch = useDispatch();
+    const selectorSessionStorageKeyJwt = useSelector(selectSessionStorageKeyJwt);
     const [logInData, setLogInData] = useState({
         email: "",
         password: ""
@@ -34,7 +37,7 @@ const FormLogIn = () => {
 
     async function handleButtonLogInClick(e) {
         e.preventDefault();
-        debugger;
+
         // Log in and receive user credentials
         const credentials = await axios.post(SERVER_URL_SESSIONS, {
             user: {
@@ -63,7 +66,7 @@ const FormLogIn = () => {
         dispatch(setUserJwt(credentials.data.jwt));
 
         // Store user jwt in local storage
-        localStorage.setItem(selectSessionStorageKeyJwt , credentials.data.jwt);
+        localStorage.setItem(selectorSessionStorageKeyJwt, credentials.data.jwt);
 
         // Redirect user to their dashboard page
         history.push('/user/dashboard');
@@ -81,6 +84,7 @@ const FormLogIn = () => {
                     inputType="email"
                     inputName="email"
                     inputOnChange={(e) => handleInputChange(e)}
+                    iconPath={emailIcon}
                 />
 
                 <InputTextWithIcon 
@@ -88,6 +92,7 @@ const FormLogIn = () => {
                     inputType="password"
                     inputName="password"
                     inputOnChange={(e) => handleInputChange(e)}
+                    iconPath={passwordIcon}
                 />
 
                 <CheckboxRememberMe />

@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <header id='header' className="page--padding">
             <BaseLogo />
-            <HamburgerMenu />
+            <HamburgerMenu className='header__hamburger-menu' />
         </header>
     );
 }

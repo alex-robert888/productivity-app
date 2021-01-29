@@ -1,6 +1,6 @@
 
 import { createSlice } from '@reduxjs/toolkit';
-import { SERVER_URL_SESSIONS } from '../global/server';
+import { SERVER_URL_USERS_AUTHENTICATED } from '../global/server';
 import axios from 'axios';
 
 export const userSlice = createSlice({
@@ -37,22 +37,20 @@ export const {
 // thunks
 export const authenticateUserWithJwt = () => async (dispatch) => {
     const jwt = localStorage.getItem("userJwt");
+    axios.defaults.headers.common["Authorization"] = jwt;
     if (jwt) {
-        const credentials= await axios.post(SERVER_URL_SESSIONS + "/jwt", {
-            user: {
-                jwt: jwt
-            }
-        });
+        dispatch(setUserJwt(jwt));
+        const credentials= await axios.get(SERVER_URL_USERS_AUTHENTICATED);
 
-        console.log(credentials);
+        console.log("Credentials: ", credentials);
 
         dispatch(setUserState({
-            fullName: credentials.data.user.full_name,
-            email: credentials.data.user.email,
-            dateOfBirth: credentials.data.user.date_of_birth,
-            country: credentials.data.user.country,
-            city: credentials.data.user.city,
-            username: credentials.data.user.username
+            fullName: credentials.data.full_name,
+            email: credentials.data.email,
+            dateOfBirth: credentials.data.date_of_birth,
+            country: credentials.data.country,
+            city: credentials.data.city,
+            username: credentials.data.username
         }));
     }
 } 
@@ -60,7 +58,7 @@ export const authenticateUserWithJwt = () => async (dispatch) => {
 // selectors
 export const selectUserCredentials = state => state.user.credentials; 
 export const selectUserJwt = state => state.user.jwt;
-export const selectSessionStorageKeyJwt = state => state.user.sessionStorageKeyJwt;
+export const selectSessionStorageKeyJwt = state => state.user.SESSION_STORAGE_KEY_JWT;
 
 // reducer
 export default userSlice.reducer;

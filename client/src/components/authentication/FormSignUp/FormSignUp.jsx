@@ -6,6 +6,11 @@ import "./FormSignUp.scss";
 import '../../../assets/global-style/_classes.scss'
 import axios from 'axios';
 import { SERVER_URL_USERS } from '../../../global/server';
+import emailIcon from '../../../assets/images/email-icon.svg';
+import passwordIcon from '../../../assets/images/password-icon.svg';
+import profileUserIcon from '../../../assets/images/profile-user.svg';
+import locationIcon from '../../../assets/images/location-icon.svg';
+
 
 const FormSignUp = () => {
     // User sign up data received by form
@@ -53,6 +58,7 @@ const FormSignUp = () => {
                 inputType="email"
                 inputName="email"
                 inputOnChange={(e) => handleInputChange(e)}
+                iconPath={emailIcon}
             />
 
             <InputTextWithIcon 
@@ -60,6 +66,7 @@ const FormSignUp = () => {
                 inputType="username"
                 inputName="username"
                 inputOnChange={(e) => handleInputChange(e)}
+                iconPath={profileUserIcon}
             />
         </section>,
 
@@ -70,6 +77,7 @@ const FormSignUp = () => {
                     inputType="text"
                     inputName="fullName"
                     inputOnChange={(e) => handleInputChange(e)}
+                    iconPath={profileUserIcon}
                 />
 
                 <InputTextWithIcon 
@@ -86,6 +94,7 @@ const FormSignUp = () => {
                     inputType="text"
                     inputName="country"
                     inputOnChange={(e) => handleInputChange(e)}
+                    iconPath={locationIcon}
                 />
 
                 <InputTextWithIcon 
@@ -93,6 +102,7 @@ const FormSignUp = () => {
                     inputType="text"
                     inputName="city"
                     inputOnChange={(e) => handleInputChange(e)}
+                    iconPath={locationIcon}
                 />
             </div>
         </section>,
@@ -103,6 +113,7 @@ const FormSignUp = () => {
                 inputType="password"
                 inputName="password"
                 inputOnChange={(e) => handleInputChange(e)}
+                iconPath={passwordIcon}
             />
 
             <InputTextWithIcon 
@@ -110,6 +121,7 @@ const FormSignUp = () => {
                 inputType="password"
                 inputName="passwordConfirmation"
                 inputOnChange={(e) => handleInputChange(e)}
+                iconPath={passwordIcon}
             />
         </section>,
     ];

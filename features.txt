@@ -1,6 +1,8 @@
 
 * [ ] have a bucket of unfiltered tasks
 * [ ] let user selec the next step of a project
+* [ ] show tasks that you have checked in the last 24 hours
+* [ ] show a resume of what you have done in last 24 hours
 * [ ] have buckets for collection and be able to empty it
 * [ ] plan a day (every 24 hours, as I did for the year plan for 2021)
 * [ ] make plans for certain periods of time
