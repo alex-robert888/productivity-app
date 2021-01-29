@@ -5,17 +5,19 @@ import Gravatar from 'react-gravatar';
 import BaseUnderlinedHeading from '../../components/base/BaseUnderlinedHeading/BaseUnderlinedHeading'
 import '../../assets/global-style/_classes.scss'
 import InputTextWithIcon from '../../components/authentication/InputTextWithIcon/InputTextWithIcon';
+import BasePopUp from '../../components/base/BasePopUp/BasePopUp';
 import emailIcon from '../../assets/images/email-icon.svg';
 import passwordIcon from '../../assets/images/password-icon.svg';
 import profileUserIcon from '../../assets/images/profile-user.svg';
 import locationIcon from '../../assets/images/location-icon.svg';
 import { selectUserCredentials, selectUserJwt } from '../../store/userSlice';
 import axios from 'axios';
-import { SERVER_URL_USERS } from '../../global/server';
+import { SERVER_URL_USERS_AUTHENTICATED } from '../../global/server';
 
 const UserProfilePage = () => {
     const selectorUserCredentials = useSelector(selectUserCredentials);
     const selectorUserJwt = useSelector(selectUserJwt);
+    const [isPopUpDisplayed, setIsPopUpDisplayed] = useState(false);
     const [newUserCredentials, setNewUserCredentials] = useState({
         fullName: "",
         email: "",
@@ -49,8 +51,7 @@ const UserProfilePage = () => {
     async function handleButtonApplyChangesClick(e) {
         e.preventDefault();
         const jwt = await selectorUserJwt;
-        console.log("New credentials: ", newUserCredentials);
-        await axios.patch(SERVER_URL_USERS + `/${jwt}`, {
+        await axios.patch(SERVER_URL_USERS_AUTHENTICATED, {
             user: {
                 full_name: newUserCredentials.fullName,
                 email: newUserCredentials.email,
@@ -62,7 +63,8 @@ const UserProfilePage = () => {
                 password_confirmation: ""            
             }
         });
-        console.log("JWT(after): " + jwt);
+       
+        setIsPopUpDisplayed(true);
     }
 
     return (
@@ -149,6 +151,13 @@ const UserProfilePage = () => {
                     <button className="button--filled" onClick={(e) => handleButtonApplyChangesClick(e)}>apply changes</button>
                 </form>
             </div>
+
+            <BasePopUp 
+                isDisplayed={isPopUpDisplayed}
+                heading="Modifications applied!"
+                text="Your user details were changed!"
+                handleCloseButtonClick={() => setIsPopUpDisplayed(false)}
+            />
         </section>
     );
 }

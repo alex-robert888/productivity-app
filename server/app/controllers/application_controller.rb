@@ -12,6 +12,7 @@ class ApplicationController < ActionController::API
 
     def get_authenticated_user
         decoded_auth_jwt = decode_auth_jwt
+        p decoded_auth_jwt
         User.find(decode_auth_jwt[0]["user_id"])
     end
 

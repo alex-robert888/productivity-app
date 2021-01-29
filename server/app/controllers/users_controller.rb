@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     render json: @user
   end
 
-  # POST /users/authenticated
+  # POST /users
   # Creates a new user with the credentials from params
   # @renders: user data, if successfully created
   #          error message, otherwise
@@ -21,9 +21,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      render json: @user, status: 201
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @user.errors, status: 401
     end
   end
 
@@ -33,9 +33,9 @@ class UsersController < ApplicationController
   #           error, otherwise
   def update
     if self.all_attributes_updated_succcessfully?
-        render json: @user
+        render json: @user, status: 200
     else
-        render json: @user.errors, status: :unprocessable_entity
+        render json: @user.errors, status: 400
     end
   end
 
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   private
     # Allow all user credentials, except the id
     def user_params
-      params.require(:user).permit(:country, :email, :date_of_birth, :country, :city, :username, :password, :password_confirmation)
+      params.require(:user).permit(:full_name, :country, :email, :date_of_birth, :country, :city, :username, :password, :password_confirmation)
     end
 
     # For an update, allow all user credentials, excepr the id, password & password_confirmation
@@ -66,5 +66,9 @@ class UsersController < ApplicationController
       @user.update_attribute(:username, user_params_update[:username]) &&
       @user.update_attribute(:country, user_params_update[:country]) &&
       @user.update_attribute(:city, user_params_update[:city])
+    end
+
+    def update_attribute(attribute_name)!
+      @user.update_attribute(attribute_name, user_params_update[attribute_name])
     end
 end

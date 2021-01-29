@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
         if @user
             jwt_payload = {
-                id: @user.id
+                user_id: @user.id
             }
             render json: {
                 status: 201,
@@ -20,8 +20,9 @@ class SessionsController < ApplicationController
                 user: @user,
                 jwt: User.encode_jwt(jwt_payload)
             }
+
         else
-            render json: { 
+            render json: {
                 status: 401,
                 message: "Failed to create new user session."
             }
