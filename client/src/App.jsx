@@ -7,6 +7,7 @@ import TestPage from './pages/test/TestPage';
 import HomePage from './pages/HomePage/HomePage';
 import UserPage from './pages/UserPage/UserPage';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
+import TodayPlansPage from './pages/TodayPlansPage/TodayPlansPage';
 import Header from './components/header/Header';
 import './assets/global-style/_classes.scss';
 import { useDispatch } from 'react-redux';
@@ -29,6 +30,7 @@ const App = () => {
               <Route path='/test' component={TestPage} />
               <Route path='/user' exact component={UserPage} />
               <Route path='/user/profile' component={UserProfilePage} />
+              <Route path='/user/today' component={TodayPlansPage} />
             </Switch>
           </div>
         </div>
