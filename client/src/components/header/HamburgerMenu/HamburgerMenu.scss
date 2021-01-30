@@ -1,11 +1,14 @@
 .hamburger-menu {
-    height: 2.9rem !important;
+    height: auto !important;
+    > img {
+        width: 1.5rem;
+    }
 }
 
 @media (min-width: 650px) {
     .hamburger-menu {
         > img {
-            width: 3.6rem;
+            width: 2.7rem;
         }
     }
 }

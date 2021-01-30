@@ -2,12 +2,9 @@
 import React from "react";
 import { MemoryRouter } from 'react-router-dom';
 import { render, fireEvent } from '@testing-library/react';
-import BaseLogo from './BaseLogo';
+import Logo from './Logo';
 
-it ("renders without crashing", () => {
-    render(<BaseLogo></BaseLogo>);
-});
-
+// Mock redirection (fired by onCLick event) to home page 
 const mockHistoryPush = jest.fn();
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
@@ -19,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 it ("redirects to home page on click", () => {
     const { getByRole } = render(
         <MemoryRouter>
-          <BaseLogo />
+          <Logo />
         </MemoryRouter>,
       );
 

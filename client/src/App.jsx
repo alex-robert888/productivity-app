@@ -8,7 +8,7 @@ import HomePage from './pages/HomePage/HomePage';
 import UserPage from './pages/UserPage/UserPage';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import TodayPlansPage from './pages/TodayPlansPage/TodayPlansPage';
-import Header from './components/header/Header';
+import Header from './components/header/Header/Header';
 import './assets/global-style/_classes.scss';
 import { useDispatch } from 'react-redux';
 
@@ -23,7 +23,7 @@ const App = () => {
       <Router>
         <div id='app'>
           <Header />
-          <div className="page--padding-double">
+          <div className="page--padding">
             <Switch>
               <Route path='/' exact component={HomePage} />
               <Route path='/auth' component={AuthenticationPage} />

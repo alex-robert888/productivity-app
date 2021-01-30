@@ -1,0 +1,41 @@
+.today-plans-page {
+    padding-top: 2rem;
+}
+
+.today-plans-page__list {
+    width: 100%;
+
+    > * {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.today-plans-page__list__header {
+    > button {
+        height: auto !important;
+
+        > img {
+            width: 3.1rem; 
+        }
+    }
+}
+
+@media (min-width: 650px) {
+    .today-plans-page {
+        padding-top: 5rem;
+    }
+
+    .today-plans-page__list {
+        width: 650px;
+    }    
+
+    .today-plans-page__list__header {
+        > button {
+            > img {
+                width: 4.5rem;
+            }
+        }
+    }
+}

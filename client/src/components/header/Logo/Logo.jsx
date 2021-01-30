@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import '../base/BaseLogo.scss';
-import '../../assets/global-style/_classes.scss';
-import logo from '../../assets/images/logo.svg';
-import * as pageUrls from '../../global/pageUrls';
+import './Logo.scss';
+import '../../../assets/global-style/_classes.scss';
+import logo from '../../../assets/images/logo.svg';
+import * as pageUrls from '../../../global/pageUrls';
 
 const BaseLogo = () => {
     let history = useHistory();

@@ -67,6 +67,14 @@ $page-single-padding-mobile: 1.5rem;
     }
 }
 
+/* ----- heading ----- */
+.heading {
+    font-size: 1.8rem;
+    @media (min-width: 650px) {
+        font-size: 2.4rem;
+    }
+}
+
 /* ----- ul ----- */
 .ul {
     list-style: none;
