@@ -4,7 +4,7 @@
 .button {
     @include rounded-border;
     cursor: pointer;
-    height: 3rem;
+    height: 2.75rem;
     outline: none;
     font-weight: 600;
     font-size: 0.95rem;
@@ -67,7 +67,42 @@ $page-single-padding-mobile: 1.5rem;
     }
 }
 
+/* ----- heading ----- */
+.heading {
+    font-size: 1.8rem;
+    @media (min-width: 650px) {
+        font-size: 2.4rem;
+    }
+}
+
 /* ----- ul ----- */
 .ul {
     list-style: none;
 }
+
+/* ----- input & form ----- */
+.input-label
+{
+    display: grid;
+    row-gap: 0.3rem;
+
+    > input {
+        @include rounded-border;
+        height: 2.75rem;
+        padding: 0 1rem;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+            border: none;
+            box-shadow: 0 0 0 1.5pt $color-primary-500;
+        }
+    }
+}
+
+.form {
+    width: 100%;
+    display: grid;
+    row-gap: 0.8rem;
+}
+

@@ -1,14 +1,14 @@
-
 .base-logo {
+    height: auto;
     margin-top: -0.25vh;
     border: none;
     > img {
-        width: 6rem;
+        width: 6.7rem;
     }
 }
 
 @media (min-width: 650px) {
     .base-logo > img {
-        width: 8.6rem;
+        width: 9.5rem;
     }   
 }

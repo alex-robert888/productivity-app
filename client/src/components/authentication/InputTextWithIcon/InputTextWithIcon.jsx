@@ -27,7 +27,7 @@ const InputTextWithIcon = ({ iconPath, labelText, inputType, inputName, inputOnC
                 {
                     extraNote &&
                     <small>
-                        <span>* </span>
+                        <span>*</span>
                         {extraNote}
                     </small>
                 }

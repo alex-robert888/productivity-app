@@ -77,7 +77,7 @@ const UserProfilePage = () => {
 
                     <article className="user-profile-page__heading-section__gravatar">
                         <Gravatar 
-                            email="robertalexandru2712@gmail.com" 
+                            email={selectorUserCredentials.email} 
                             size={75}
                             rating="g"
                         />

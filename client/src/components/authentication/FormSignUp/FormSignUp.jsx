@@ -10,7 +10,7 @@ import emailIcon from '../../../assets/images/email-icon.svg';
 import passwordIcon from '../../../assets/images/password-icon.svg';
 import profileUserIcon from '../../../assets/images/profile-user.svg';
 import locationIcon from '../../../assets/images/location-icon.svg';
-
+import "../../../assets/global-style/_classes.scss"
 
 const FormSignUp = () => {
     // User sign up data received by form
@@ -52,7 +52,7 @@ const FormSignUp = () => {
 
     // The forms list to be  passed to the multipage component
     const formsList = [
-        <section className="form-sign-up__main">
+        <section className="form">
             <InputTextWithIcon 
                 labelText="e-mail"
                 inputType="email"
@@ -70,7 +70,7 @@ const FormSignUp = () => {
             />
         </section>,
 
-        <section className="form-sign-up__main">
+        <section className="form">
             <div className="form-sign-up__main__two_on_row">
                 <InputTextWithIcon 
                     labelText="fullname"
@@ -107,7 +107,7 @@ const FormSignUp = () => {
             </div>
         </section>,
 
-        <section className="form-sign-up__main">
+        <section className="form">
             <InputTextWithIcon 
                 labelText="password"
                 inputType="password"

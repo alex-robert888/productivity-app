@@ -2,11 +2,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-    setUserState, 
-    setUserJwt, 
-    selectSessionStorageKeyJwt 
-} from '../../../store/userSlice';
+import { setUserState, setUserJwt, selectSessionStorageKeyJwt } from '../../../store/userSlice';
 import BaseUnderlinedHeading from '../../base/BaseUnderlinedHeading/BaseUnderlinedHeading';
 import InputTextWithIcon from '../InputTextWithIcon/InputTextWithIcon';
 import CheckboxRememberMe from '../CheckboxRememberMe/CheckboxRememberMe';
@@ -16,6 +12,7 @@ import { SERVER_URL_SESSIONS } from '../../../global/server';
 import axios from 'axios';
 import emailIcon from '../../../assets/images/email-icon.svg';
 import passwordIcon from '../../../assets/images/password-icon.svg';
+
 
 const FormLogIn = () => {
     const history = useHistory();

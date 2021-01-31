@@ -8,7 +8,7 @@
 
     > input {
         @include rounded-border;
-        height: 2.5rem;
+        height: 2.75rem;
         padding: 0 2.1rem;
 
         &:focus {
@@ -20,8 +20,8 @@
 
     > img {
         position: absolute;
-        width: 0.95rem;
-        margin-top: 1.97rem;
+        width: 1rem;
+        margin-top: 2.1rem;
         margin-left: 0.75rem;
     }
 }
