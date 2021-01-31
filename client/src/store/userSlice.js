@@ -37,12 +37,9 @@ export const {
 // thunks
 export const authenticateUserWithJwt = () => async (dispatch) => {
     const jwt = localStorage.getItem("userJwt");
-    axios.defaults.headers.common["Authorization"] = jwt;
     if (jwt) {
         dispatch(setUserJwt(jwt));
         const credentials= await axios.get(SERVER_URL_USERS_AUTHENTICATED);
-
-        console.log("Credentials: ", credentials);
 
         dispatch(setUserState({
             fullName: credentials.data.full_name,

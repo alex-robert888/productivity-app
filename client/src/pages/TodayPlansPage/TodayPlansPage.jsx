@@ -4,27 +4,34 @@ import "assets/global-style/_classes.scss";
 import addButton from 'assets/images/add-button.svg';
 import TaskCard from 'components/tasks/TaskCard/TaskCard';
 import TaskAddForm from 'components/tasks/TaskAddForm/TaskAddForm';
-import "assets/global-style/_classes.scss"
+import "assets/global-style/_classes.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTasks, selectTasks } from "store/tasksSlice";
 
 
 const TodayPlansPage = () => {
-    const tasksList = [
-        {
-            title: "Do the groceries",
-            summary: "Ask mom about what kind of bread to   buy",
-            createdAt: "2021-01-30",
-            duration: "60",
-            checked: true
-        },
-        {
-            title: "Go to the gym",
-            summary: "",
-            createdAt: "2021-01-30  ",
-            duration: "45",
-            checked: false
+    const [tasksList, setTasksList] = useState([]);
+    const [isAddFormDisplayed, setIsAddFormDisplayed] = useState(false);
+    const dispatch = useDispatch();
+    const selectorTasks = useSelector(selectTasks);
+
+    function handleAddClickButtonClick(e) {
+        e.preventDefault();
+        setIsAddFormDisplayed(true)
+    }
+
+    useEffect(() => {
+        dispatch(fetchTasks());
+    }, []);
+
+    useEffect(() => {
+        if (selectorTasks.tasksList.length) {
+            setTasksList(selectorTasks.tasksList);
         }
-    ];
-    const htmlTasksList = tasksList.map((task, index) => 
+    }, [selectorTasks]);
+
+    function htmlTasksList() {
+        return tasksList.map((task, index) => 
         <li key={index}>
             <TaskCard 
                 title={task.title}
@@ -34,17 +41,7 @@ const TodayPlansPage = () => {
             />
         </li>
     );
-
-    const [isAddFormDisplayed, setIsAddFormDisplayed] = useState(false);
-
-    function handleAddClickButtonClick(e) {
-        e.preventDefault();
-        setIsAddFormDisplayed(true)
     }
-
-    useEffect(() => {
-        console.log(isAddFormDisplayed);
-    }, [isAddFormDisplayed])
 
     return (
         <section className="today-plans-page">
@@ -61,7 +58,7 @@ const TodayPlansPage = () => {
             </section>
 
             <ul className="ul today-plans-page__list">
-                { htmlTasksList }
+                { htmlTasksList() }
             </ul>
 
             <TaskAddForm 

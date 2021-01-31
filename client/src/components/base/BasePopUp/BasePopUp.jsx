@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ReactDom from 'react-dom';
 import "./BasePopUp.scss";
 import '../../../assets/global-style/_classes.scss';
@@ -19,9 +19,7 @@ const BasePopUp = ({ isDisplayed, heading, text, handleCloseButtonClick, childre
                     <p>{text}</p>
                 </div>
 
-                <Fragment className="base-pop-up__box__children">
-                    {children}
-                </Fragment>
+                {children}
                 
                 <button
                     className="button--filled"

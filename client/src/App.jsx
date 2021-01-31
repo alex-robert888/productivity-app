@@ -11,11 +11,13 @@ import TodayPlansPage from './pages/TodayPlansPage/TodayPlansPage';
 import Header from './components/header/Header/Header';
 import './assets/global-style/_classes.scss';
 import { useDispatch } from 'react-redux';
+import axios from "axios";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    axios.defaults.headers.common["Authorization"] = localStorage.getItem("userJwt");
     dispatch(authenticateUserWithJwt());
   }, []);
 

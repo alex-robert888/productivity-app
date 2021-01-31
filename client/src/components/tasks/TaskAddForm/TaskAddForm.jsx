@@ -4,12 +4,15 @@ import BasePopUp from "components/base/BasePopUp/BasePopUp";
 import '../../../assets/global-style/_classes.scss'
 import axios from 'axios';
 import { SERVER_URL_TASKS } from '../../../global/server'; 
+import { addTask } from "store/tasksSlice";
+import { useDispatch } from "react-redux";
 
 const TaskAddForm = ({ isDisplayed, handleCloseButtonClick }) => {
     const [newTaskData, setNewTaskData] = useState({
         title: "",
         duration: "",
     });
+    const dispatch = useDispatch();
 
     function handleInputChange(e) {
         e.preventDefault();
@@ -20,24 +23,25 @@ const TaskAddForm = ({ isDisplayed, handleCloseButtonClick }) => {
     }
 
     async function handleAddFormButtonClick() {
-        console.log(newTaskData);
+        console.log("New task data: ", newTaskData);
 
         // Close the pop-up 
         handleCloseButtonClick();
 
         // Send new task data to server
-        const response = await axios.post(SERVER_URL_TASKS, {
-            task: {
-                title: newTaskData.title,
-                duration: newTaskData.duration
-            }
-        });
-
-        if (response.status === 400) {
-            alert("Task creation failed.")
-            return;
+        try {
+            const response = await axios.post(SERVER_URL_TASKS, {
+                task: {
+                    title: newTaskData.title,
+                    duration: newTaskData.duration
+                }
+            });
+            dispatch(addTask(response.data));
         }
-    }
+        catch(exc) {
+            alert("Task creation failed.")
+        }
+    }   
 
     return (
         <article className="task-add-form">
