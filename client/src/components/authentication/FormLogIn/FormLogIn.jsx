@@ -2,11 +2,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-    setUserState, 
-    setUserJwt, 
-    selectSessionStorageKeyJwt 
-} from '../../../store/userSlice';
+import { setUserState, setUserJwt, selectSessionStorageKeyJwt } from '../../../store/userSlice';
 import BaseUnderlinedHeading from '../../base/BaseUnderlinedHeading/BaseUnderlinedHeading';
 import InputTextWithIcon from '../InputTextWithIcon/InputTextWithIcon';
 import CheckboxRememberMe from '../CheckboxRememberMe/CheckboxRememberMe';
