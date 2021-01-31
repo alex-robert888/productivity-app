@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDom from 'react-dom';
 import "./BasePopUp.scss";
 import '../../../assets/global-style/_classes.scss';
 import checkmark from '../../../assets/images/checkmark.svg';
 
-const BasePopUp = ({ isDisplayed, heading, text, handleCloseButtonClick }) => {
+const BasePopUp = ({ isDisplayed, heading, text, handleCloseButtonClick, children }) => {
     if (!isDisplayed) {
         return null;
     }
@@ -18,6 +18,11 @@ const BasePopUp = ({ isDisplayed, heading, text, handleCloseButtonClick }) => {
                     <h1>{heading}</h1>
                     <p>{text}</p>
                 </div>
+
+                <Fragment className="base-pop-up__box__children">
+                    {children}
+                </Fragment>
+                
                 <button
                     className="button--filled"
                     onClick={() =>  handleCloseButtonClick()}

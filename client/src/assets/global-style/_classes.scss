@@ -79,3 +79,30 @@ $page-single-padding-mobile: 1.5rem;
 .ul {
     list-style: none;
 }
+
+/* ----- input & form ----- */
+.input-label
+{
+    display: grid;
+    row-gap: 0.3rem;
+
+    > input {
+        @include rounded-border;
+        height: 2.75rem;
+        padding: 0 1rem;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+            border: none;
+            box-shadow: 0 0 0 1.5pt $color-primary-500;
+        }
+    }
+}
+
+.form {
+    width: 100%;
+    display: grid;
+    row-gap: 0.8rem;
+}
+

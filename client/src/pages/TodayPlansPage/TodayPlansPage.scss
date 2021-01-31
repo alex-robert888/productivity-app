@@ -22,6 +22,12 @@
     }
 }
 
+.today-plans-page__list {
+    > * {
+        margin: 1.5rem 0;
+    }
+}
+
 @media (min-width: 650px) {
     .today-plans-page {
         padding-top: 5rem;
